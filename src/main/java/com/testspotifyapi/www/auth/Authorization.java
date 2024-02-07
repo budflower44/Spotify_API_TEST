@@ -67,7 +67,5 @@ public class Authorization {
   public static void main(String[] args) {
     authorizationCode_Sync();
     authorizationCode_Async();
-    
-    System.out.print("ok");
   }
 }
