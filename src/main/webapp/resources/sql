@@ -1,0 +1,11 @@
+-- 2024-01-22
+-- root 계정으로 DB 생성, User 생성
+-- db 생성 구문
+create database testspotifyapidb;
+-- user 생성 구문
+create user 'testspotifyUser'@'localhost' identified by 'spotify';
+-- user 권한 부여
+grant all privileges on testspotifyapidb.* to 'testspotifyUser'@'localhost' with grant option;
+-- 권한 설정 완료
+flush privileges;
+
