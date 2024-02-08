@@ -21,6 +21,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonObject;
 import com.testspotifyapi.www.auth.Authorization;
 import com.testspotifyapi.www.auth.AuthorizationRefresh;
 import com.testspotifyapi.www.auth.AuthorizationUri;
@@ -89,10 +90,13 @@ public class SpotifyApiController {
 	    try {
 	        // JSON 파싱
 	        ObjectMapper objectMapper = new ObjectMapper();
-	        JsonNode tracksNode = objectMapper.readTree(search(accessToken, searchQuery)).get("tracks").get("items");
+	        JsonNode tracksNode = objectMapper.readTree(search(accessToken, searchQuery))
+	        		.get("tracks")
+	        		.get("items");
 
 	        for (JsonNode trackNode : tracksNode) {
 	            resultList.add(trackNode.get("name").toString());
+	            
 	        }
 
 	        m.addAttribute("list", resultList);
@@ -111,7 +115,9 @@ public class SpotifyApiController {
         String body = "";
 
         HttpEntity<String> requestEntity = new HttpEntity<String>(body, headers);
-        ResponseEntity<String> responseEntity = rest.exchange("https://api.spotify.com/v1/search?type=track&q=" + q, HttpMethod.GET, requestEntity, String.class);
+        ResponseEntity<String> responseEntity = 
+        		rest.exchange("https://api.spotify.com/v1/search?type=track&q=" + q, 
+        				HttpMethod.GET, requestEntity, String.class);
         HttpStatus httpStatus = responseEntity.getStatusCode();
         int status = httpStatus.value(); //상태 코드가 들어갈 status 변수
         String response = responseEntity.getBody();
@@ -121,6 +127,17 @@ public class SpotifyApiController {
         return response;
     }
 
-
+	@GetMapping("/getSearch")
+	public void searchPage() {}
+	
+	@GetMapping("/search")
+	public void searchData(Model m) {
+		
+		
+		
+	} 
+	
+	
+	
 	
 }

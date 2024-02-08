@@ -12,6 +12,7 @@
 <a href="/spotify/getTracksLogs">tracks..</a>
 <a href="/spotify/login">login..</a>
 <a href="/spotify/getToken">token..</a>
+<a href="/spotify/getSearch">Search..</a>
 <br>
 
 <%@ page import="java.util.Base64" %>

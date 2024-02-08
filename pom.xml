@@ -351,7 +351,7 @@
                 </configuration>
             </plugin>
             <!-- web.xml이 없으면 .config 가서 설정을 찾아봐 라는 설정 -->
-			<!-- web.xml 삭제, javaConfig 설정하기 위한 추가 설정 -->
+			<!-- web.xml 삭제, j		avaConfig 설정하기 위한 추가 설정 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
