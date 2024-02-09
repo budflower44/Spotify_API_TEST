@@ -1,4 +1,4 @@
--- 2024-01-22
+<2024-01-22>
 -- root 계정으로 DB 생성, User 생성
 -- db 생성 구문
 create database testspotifyapidb;
@@ -9,3 +9,76 @@ grant all privileges on testspotifyapidb.* to 'testspotifyUser'@'localhost' with
 -- 권한 설정 완료
 flush privileges;
 
+<2024-02-09>
+--"albums", "artists", "tracks" 테이블 생성 완료
+CREATE TABLE `albums` (
+	`id`	varchar(255) NOT NULL,
+	`external_urls`	varchar(1000) NOT NULL,
+	`album_type`	varchar(100),
+	`artists_external_urls`	varchar(1000),
+	`artists_href`	varchar(1000),
+	`artists_id`	varchar(1000),
+	`artists_name`	varchar(1000),
+	`artists_type`	varchar(100),
+	`artists_uri`	varchar(1000),
+	`href`	varchar(1000),
+	`images_url`	varchar(1000),
+	`images_height` int DEFAULT 640,
+	`images_width` int DEFAULT 640,
+	`name`	varchar(1000),
+	`release_date`	varchar(1000),
+	`release_date_precision`	varchar(100),
+	`total_tracks` int DEFAULT 0,
+	`type`	varchar(100),
+	`uri`	varchar(1000),
+	`likes`	bigint DEFAULT 0,
+	`play_count`	bigint DEFAULT 0,
+	`rank_month` int DEFAULT 0,
+	`rank_week` int DEFAULT 0,
+	`rank_day` int DEFAULT 0,
+	primary key(id));
+
+CREATE TABLE `artists` (
+    `id` varchar(255),
+    `external_urls` varchar(1000) NOT NULL,
+    `followers_href` varchar(1000),
+    `followers_total` bigint DEFAULT 0,
+    `genres` varchar(1000),
+    `href` varchar(1000),
+    `images_url` varchar(1000),
+    `images_height` int DEFAULT 640,
+    `images_width` int DEFAULT 640,
+    `name` varchar(1000),
+    `popularity` bigint DEFAULT 0,
+    `type` varchar(100),
+    `uri` varchar(1000),
+    `likes` bigint DEFAULT 0,
+    `play_count` bigint DEFAULT 0,
+    `rank_month` int DEFAULT 0,
+    `rank_week` int DEFAULT 0,
+    `rank_day` int DEFAULT 0,
+    PRIMARY KEY (id));
+
+CREATE TABLE `tracks` (
+    `id` varchar(255) NOT NULL,
+    `album_id` varchar(1000) NOT NULL,
+    `artists_id` varchar(1000) NOT NULL,
+    `external_url` varchar(1000) NOT NULL,
+    `disc_number` bigint DEFAULT 0,
+    `duration_ms` bigint DEFAULT 0,
+    `explicit` boolean,
+    `external_ids` varchar(1000),
+    `href` varchar(1000),
+    `is_local` boolean,
+    `name` varchar(1000),
+    `popularity` bigint DEFAULT 0,
+    `preview_url` varchar(1000),
+    `track_number` int DEFAULT 0,
+    `type` varchar(100),
+    `uri` varchar(1000),
+    `likes` bigint DEFAULT 0,
+    `play_count` bigint DEFAULT 0,
+    `rank_month` int DEFAULT 0,
+    `rank_week` int DEFAULT 0,
+    `rank_day` int DEFAULT 0,
+    PRIMARY KEY (id));

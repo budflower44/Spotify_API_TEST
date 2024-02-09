@@ -3,5 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.testspotifyapi.www.repository.SpotifyDAO">
-
+	
+	<select id="compareToDBDataAlbums" resultType="String">
+		select id from albums where id=#{id}
+	</select>
+	
+	<insert id="insertDBAlbums" parameterType="com.testspotifyapi.www.albums.AlbumsVO">
+		INSERT INTO albums (id, external_urls, album_type, artists_external_urls, artists_href, 
+		artists_id, artists_name, artists_type, artists_uri, href, images_url, images_height, 
+		images_width, name, release_date, release_date_precision, total_tracks, type, uri) 
+		VALUES (#{id}, #{externalUrls}, #{albumType}, #{artistsExternalUrls}, #{artistsHref}, 
+		#{artistsId}, #{artistsName}, #{artistsType}, #{artistsUri}, #{href}, #{imagesUrl}, 
+		#{imagesHeight}, #{imagesWidth}, #{name}, #{releaseDate}, #{releaseDatePrecision}, 
+		#{totalTracks}, #{type}, #{uri})
+	</insert>
+	
 </mapper>

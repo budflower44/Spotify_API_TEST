@@ -295,6 +295,14 @@
 		<artifactId>spotify-web-api-java</artifactId>
 		<version>master-SNAPSHOT</version>
 	</dependency>
+
+	<!-- JSON 파싱 관련 라이브러리 -->
+	<!-- https://mvnrepository.com/artifact/org.json/json -->
+	<dependency>
+		<groupId>org.json</groupId>
+		<artifactId>json</artifactId>
+		<version>20230227</version>
+	</dependency>
 	
 		    
 	</dependencies>
@@ -351,7 +359,7 @@
                 </configuration>
             </plugin>
             <!-- web.xml이 없으면 .config 가서 설정을 찾아봐 라는 설정 -->
-			<!-- web.xml 삭제, javaConfig 설정하기 위한 추가 설정 -->
+			<!-- web.xml 삭제, j		avaConfig 설정하기 위한 추가 설정 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
